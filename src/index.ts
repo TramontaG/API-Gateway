@@ -16,20 +16,9 @@ const port = 8000;
 	});
 });
 
-httpsApp.get('/', (req, res) => {
-	res.send('ok');
-});
-
 setupProxies(app, ROUTES);
-setupProxies(httpsApp, ROUTES);
 
-app.use((req, res, next) => {
-	console.log(req.url);
-});
-
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
-});
+app.listen(port);
 
 https
 	.createServer(
